@@ -24,19 +24,18 @@ public class AuthController {
 	public AuthController(AuthService authService) {
 		this.authService = authService;
 	}
-	
+
 	@PostMapping("/register")
 	@ResponseStatus(HttpStatus.CREATED)
 	public UserResponse register(
-			@Valid @RequestBody RegisterRequest request
-			) {
+			@Valid @RequestBody RegisterRequest request) {
 		return authService.register(request);
-		
+
 	}
-	
+
 	@PostMapping("/login")
 	public TokenResponse login(@Valid @RequestBody LoginRequest request) {
 		return authService.login(request);
 	}
-	
+
 }

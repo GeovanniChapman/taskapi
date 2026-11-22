@@ -12,5 +12,6 @@ import com.example.taskapi.entity.Task;
 public interface TaskRepository extends JpaRepository<Task, UUID> {
 
 	Page<Task> findAllByOwnerId(UUID ownerId, Pageable pageable);
+
 	Optional<Task> findByIdAndOwnerId(UUID id, UUID ownerId);
 }

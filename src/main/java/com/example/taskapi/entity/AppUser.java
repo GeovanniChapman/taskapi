@@ -8,19 +8,19 @@ import java.util.UUID;
 public class AppUser {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.UUID)
+	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
-	
-	@Column(nullable=false, unique=true, length=254)
+
+	@Column(nullable = false, unique = true, length = 254)
 	private String email;
-	
-	@Column(name="password_hash", nullable=false, length=255)
+
+	@Column(name = "password_hash", nullable = false, length = 255)
 	private String passwordHash;
-	
+
 	protected AppUser() {
 		// Required by JPA
 	}
-	
+
 	public AppUser(String email, String passwordHash) {
 		this.email = email;
 		this.passwordHash = passwordHash;

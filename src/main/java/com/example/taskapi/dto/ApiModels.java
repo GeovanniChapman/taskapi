@@ -9,52 +9,46 @@ import java.util.List;
 
 public final class ApiModels {
 
-	private ApiModels() {}
-	
-	public record RegisterRequest(
-			
-			@NotBlank @Email @Size(max=254)
-			String email,
-			
-			@NotBlank @Size(min=12, max=72)
-			String password) {
+	private ApiModels() {
 	}
-	
+
+	public record RegisterRequest(
+
+			@NotBlank @Email @Size(max = 254) String email,
+
+			@NotBlank @Size(min = 12, max = 72) String password) {
+	}
+
 	public record LoginRequest(
-			
-			@NotBlank @Email @Size(max=254)
-			String email,
-			
-			@NotBlank @Size(max=72)
-			String password
-			) {}
-	
+
+			@NotBlank @Email @Size(max = 254) String email,
+
+			@NotBlank @Size(max = 72) String password) {
+	}
+
 	public record UserResponse(
 			UUID id,
-			String email
-			) {}
-	
-	public record TokenResponse(
-			String accessToke,
-			String tokenType,
-			long expiresIn){
-		
+			String email) {
 	}
+
+	public record TokenResponse(
+			String accessToken,
+			String tokenType,
+			long expiresIn) {
+
+	}
+
 	public record CreateTaskRequest(
-			@NotBlank @Size(max=200)
-			String title,
-			@NotNull
-			Boolean completed
-			) {}
+			@NotBlank @Size(max = 200) String title,
+			@NotNull Boolean completed) {
+	}
+
 	public record UpdateTaskRequest(
-			@NotBlank @Size(max=200)
-			String title,
-			@NotNull
-			Boolean completed,
-			@NotNull @PositiveOrZero
-			Long version
-			) {}
-	
+			@NotBlank @Size(max = 200) String title,
+			@NotNull Boolean completed,
+			@NotNull @PositiveOrZero Long version) {
+	}
+
 	public record TaskResponse(
 			UUID id,
 			String title,
@@ -65,15 +59,15 @@ public final class ApiModels {
 					task.getId(),
 					task.getTitle(),
 					task.isCompleted(),
-					task.getVersion()
-					);
+					task.getVersion());
 		}
 	}
-	
+
 	public record PageResponse<T>(
 			List<T> content,
 			int page,
 			int size,
 			long totalElements,
-			int totlaPages) {}
+			int totalPages) {
+	}
 }

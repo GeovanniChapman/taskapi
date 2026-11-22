@@ -13,22 +13,20 @@ spring:
    hibernate:
     jdbc:
      time_zone: UTC
-
  liquibase:
   change-log: classpath:db/changelog/db.changelog-master.yaml
-  
  mvc:
   problemdetails:
    enabled: true
- 
- server:
-  error:
-   include-message: never
-   include-stacktrace: never
-   
- app:
-  jwt:
-   secret: ${JWT_SECRET}
-   issuer: task-api
-   audience: task-api-clients
+
+server:
+ error:
+  include-message: never
+  include-stacktrace: never
+
+app:
+ jwt:
+  secret: ${JWT_SECRET}
+  issuer: task-api
+  audience: task-api-clients
    
